@@ -1,3 +1,6 @@
+<?php
+    include "biblioteca/conexao.php"; 
+?>
 <!doctype html>
 <html lang="en">
   <head>
@@ -8,7 +11,7 @@
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 
-    <title>Hello, world!</title>
+    <title>--Locadora Diego--</title>
   </head>
   <body>
     <div class="container">
@@ -19,11 +22,15 @@
 			<div class="col-4 bg-danger">
 				<a class="btn btn-link" href="#">Home</a>
 				<br>
-				<a class="btn btn-link" href="?pagina=contato">Contato</a>
+				<a class="btn btn-link" href="?pagina=contato&nome=Diego_Petry">Contato</a>
 			</div>
 			<div class="col-8 "> 
 				<?php
-				
+                    if(isset($_GET['pagina'])){
+                        include $_GET['pagina'].".php";
+                    } else {
+                        include "home.php";
+                    }
 				?>
 			</div>
 		</div>
